@@ -20,145 +20,26 @@
             <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for tuto in tutos %}
             <!-- Item n°1 -->
-                <div class="col">
+            <div class="col">
                 <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/midjourney.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">Apprenez à créer des images par Intelligence Artificiel grâce à Midjourney !</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+                    <img width="100%" height="225" src="/uploads/{{ tuto.image }}"/>
+                    <div class="card-body"></p>
+                        <p class="card-text">{{ tuto.name }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            <a href="{{ path ('app_tuto_details',{'slug':tuto.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+                            {% if app.user and "ROLE_ADMIN" in app.user.roles %}
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+                            {% endif %}
+                            </div>
+                            <small class="text-body-secondary">#{{ tuto.id }}</small>
                         </div>
-                        <small class="text-body-secondary">12 heures</small>
                     </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/unity.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">Apprenez à développer des jeux multijoueurs avec Unity et le langage C# !</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">45 heures</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/llama2.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">Maitrisez Llama2, l'intéligence artificiele capable de générer du texte pour vous !</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">5 heures</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/blender.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/electron.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/archi.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/sd.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/bard.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <img width="100%" height="225" src="{{ asset('assets/img/ue.png') }}"/>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
-            </div>
+            {% endfor %}
+        </div>
         </div>
 {% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le tuto{% endblock %}
+
+{% block body %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">{{ tuto.name }}</h1>
+                <img src="/uploads/{{ tuto.image }}" style="width:100%; margin-top:20px; margin-bottom:20px";/>
+                <p class="lead text-body-secondary">{{ tuto.description | raw }}</p>
+                <p>
+                    <a href="{{ tuto.link }}" target="_blank" class="btn btn-primary my-2">Acheter la formation</a>
+                    <a href="https://guenael.gumroad.com/l/exempletuto" target="_blank"  class="btn btn-secondary my-2">En savoir plus</a>
+                </p>
+                <h2>Trailer de la Formation</h2>
+                <div class="text-center iframe-container">
+                    <div id="player"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Fonction appelée lorsque l'API YouTube est prête
+        function onYouTubeIframeAPIReady() {
+            // Remplace le lien YouTube avec le format embed
+            var videoUrl = '{{ tuto.video | replace({'watch': 'embed', '?v=': '/'}) }}';
+
+            // Extrait l'ID de la vidéo à partir du lien format embed
+            var videoId = videoUrl.split('/').pop();
+
+            // Créer un nouveau lecteur YouTube
+            var player = new YT.Player('player', {
+                videoId: videoId,
+                width: 560,
+                height: 315,
+                playerVars: {
+                    // Ajoute ici des paramètres supplémentaires si nécessaire
+                }
+            });
+        }
+    </script>
+
+    <!-- Chargement de l'API YouTube -->
+    <script defer src="https://www.youtube.com/iframe_api"></script>
+{% endblock %}

@@ -142,7 +142,11 @@
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
                 <h4>A propos</h4>
-                <p class="text-body-secondary">formation-facile.fr est le leader de la formation vidéo sur le développement de jeux vidéo, l'IA et le développement web.</p>
+                {% if app.user%}
+                    <p class="text-body-secondary">Bonjour {{ app.user.email}}</p>
+                {% endif %}
+                    <p class="text-body-secondary">formation-facile.fr est le leader de la formation vidéo sur le développement de jeux vidéo, l'IA et le développement web.</p>
+                
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">
                 <h4>Contact</h4>
